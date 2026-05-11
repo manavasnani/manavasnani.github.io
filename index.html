@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>manav asnani · application security</title>
+<meta name="description" content="Manav Asnani. Application Security Engineer. iOS pentesting, SAST/DAST automation, SOC/SIEM, binary exploitation. MS Cybersecurity at Northeastern. Boston, MA." />
+<meta name="theme-color" content="#0A0E14" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Manav Asnani · Application Security" />
+<meta property="og:description" content="iOS pentesting, SAST/DAST, SOC/SIEM, binary exploitation. Northeastern MS Cybersecurity, graduating Dec 2026." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+<!--
+  try ↑↑↓↓←→←→ba
+-->
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- TOP STATUS BAR                                                -->
+<!-- ============================================================ -->
+<header class="statusbar" role="banner">
+  <div class="statusbar-left">
+    <span class="prompt-prefix">manav@portfolio</span><span class="prompt-sep">:</span><span class="prompt-path">~</span><span class="prompt-cursor">$</span>
+  </div>
+  <div class="statusbar-right">
+    <span class="chip chip-ok"><span class="dot dot-ok"></span>connected</span>
+    <span class="chip">boston, ma</span>
+    <span class="chip" id="clock">—</span>
+    <button class="chip chip-btn" id="open-palette" aria-label="Open command palette">
+      <kbd>⌘</kbd><kbd>K</kbd>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- LEFT RAIL                                                     -->
+<!-- ============================================================ -->
+<nav class="rail" aria-label="Section navigation">
+  <a href="#hero"        class="rail-item" data-target="hero"        aria-label="Hero"><span class="rail-num">01</span></a>
+  <a href="#operator"    class="rail-item" data-target="operator"    aria-label="Operator"><span class="rail-num">02</span></a>
+  <a href="#arsenal"     class="rail-item" data-target="arsenal"     aria-label="Arsenal"><span class="rail-num">03</span></a>
+  <a href="#operations"  class="rail-item" data-target="operations"  aria-label="Operations"><span class="rail-num">04</span></a>
+  <a href="#cases"       class="rail-item" data-target="cases"       aria-label="Case Files"><span class="rail-num">05</span></a>
+  <a href="#credentials" class="rail-item" data-target="credentials" aria-label="Credentials"><span class="rail-num">06</span></a>
+  <a href="#comms"       class="rail-item" data-target="comms"       aria-label="Comms"><span class="rail-num">07</span></a>
+</nav>
+
+<!-- ============================================================ -->
+<!-- MAIN                                                          -->
+<!-- ============================================================ -->
+<main class="canvas">
+
+  <!-- ===== [01] HERO ===== -->
+  <section id="hero" class="section section-hero">
+    <div class="section-label">
+      <span class="label-num">[01]</span>
+      <span class="label-name">HERO</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/boot</span>
+    </div>
+
+    <div class="hero-grid">
+      <!-- Left: terminal -->
+      <div class="terminal" id="terminal">
+        <div class="terminal-head">
+          <span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+          <span class="terminal-title">manav@portfolio · zsh</span>
+        </div>
+        <div class="terminal-body" id="terminal-body" aria-live="polite">
+          <div class="t-line"><span class="t-prompt">$</span> <span id="t-typed"></span><span class="t-caret">▍</span></div>
+        </div>
+        <form class="terminal-input-row" id="terminal-form" autocomplete="off">
+          <span class="t-prompt">$</span>
+          <input type="text" id="terminal-input" class="terminal-input" spellcheck="false"
+                 aria-label="Terminal input" placeholder="type 'help' to begin" />
+        </form>
+      </div>
+
+      <!-- Right: identity card -->
+      <aside class="identity" id="identity-card">
+        <div class="identity-meta">
+          <span class="kv-key">name</span>
+          <span class="kv-val">manav asnani</span>
+        </div>
+        <div class="identity-meta">
+          <span class="kv-key">role</span>
+          <span class="kv-val">application security engineer <span class="text-dim">(early career)</span></span>
+        </div>
+        <div class="identity-meta">
+          <span class="kv-key">loc</span>
+          <span class="kv-val">boston, ma · open to remote</span>
+        </div>
+        <div class="identity-meta">
+          <span class="kv-key">currently</span>
+          <span class="kv-val sev-info">looking for entry-level security engineering roles · available dec 2026</span>
+        </div>
+
+        <hr class="identity-hr" />
+
+        <div class="shortcuts">
+          <span class="shortcut" data-key="r"><kbd>R</kbd> resume</span>
+          <span class="shortcut" data-key="p"><kbd>P</kbd> projects</span>
+          <span class="shortcut" data-key="c"><kbd>C</kbd> contact</span>
+          <span class="shortcut" data-key="g"><kbd>G</kbd> github</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="scanline" aria-hidden="true"></div>
+  </section>
+
+
+  <!-- ===== [02] OPERATOR ===== -->
+  <section id="operator" class="section">
+    <div class="section-label">
+      <span class="label-num">[02]</span>
+      <span class="label-name">OPERATOR</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/about</span>
+    </div>
+
+    <div class="operator-grid">
+      <!-- Dossier -->
+      <div class="panel dossier">
+        <div class="panel-head">
+          <span class="panel-title">PROFILE.dossier</span>
+          <span class="panel-meta">read-only</span>
+        </div>
+        <dl class="dossier-fields">
+          <dt>name</dt>          <dd>manav asnani</dd>
+          <dt>location</dt>      <dd>Boston, MA</dd>
+          <dt>focus</dt>         <dd>appsec, ios, sast/dast, binary exploitation</dd>
+          <dt>education</dt>     <dd>M.S. Cybersecurity, Northeastern University (3.76/4.0)</dd>
+          <dt>graduating</dt>    <dd>december 2026</dd>
+          <dt>looking for</dt>   <dd class="sev-info">entry-level security roles in application security, network security, or cloud security</dd>
+        </dl>
+      </div>
+
+      <!-- Prose + nmap -->
+      <div class="operator-prose">
+        <p>My work in security tends to split between two kinds of things. On the higher-level side: secure code reviews, automated scanners in CI/CD pipelines, and writing up findings developers can actually act on. On the lower-level side: pulling IPAs apart, writing ROP chains for CTF challenges, and going through packet captures frame by frame. The interesting problems usually sit somewhere in between.</p>
+
+        <p>I just wrapped up an AppSec internship at QuakTravel. The main project there was wiring Checkmarx into GitHub Actions so high and critical findings would block pull requests before they merged to main. That one change cut our manual scan time roughly in half. Outside of the pipeline work, most of my time went into pentesting an iOS app and doing secure code reviews for the dev team.</p>
+
+        <p>Before QuakTravel, I did web app pentests at DefX in Ahmedabad, where the Python automation I built for our scanning and reporting pipeline cut manual effort by about 30 percent and helped lift the tested apps' security posture by around 40 percent.</p>
+
+        <p>I'm finishing my master's in cybersecurity at Northeastern in December 2026. Starting January 2027, I'm looking for entry-level roles in Application Security, Network Security, or Cloud Security. I'm based in Boston, MA and open to relocation or remote opportunities.</p>
+
+        <pre class="nmap" aria-label="nmap-style scan output of interests">
+<span class="text-dim">$</span> nmap -sV -p- manav.local
+
+Starting nmap scan against <span class="sev-info">manav.local</span> ...
+PORT      STATE  SERVICE      <span class="text-dim">NOTES</span>
+80/tcp    open   http         reading: web-app exploitation
+443/tcp   open   https        currently: github actions security
+1337/tcp  open   ctf          training: pwn challenges, rop chains
+8080/tcp  open   appsec       interest: secure ci/cd design
+9200/tcp  open   elk          project: logforge elk pipeline
+50000/tcp open   ios          mobile: ipa analysis, frida, cert pinning
+
+scan complete · 6 services up · 0 firewalled</pre>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== [03] ARSENAL ===== -->
+  <section id="arsenal" class="section">
+    <div class="section-label">
+      <span class="label-num">[03]</span>
+      <span class="label-name">ARSENAL</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/skills</span>
+    </div>
+
+    <div class="filter-bar" role="status" aria-live="polite">
+      <span class="filter-label">filter:</span>
+      <span id="filter-state" class="filter-state">none active. click any tag below to cross-filter.</span>
+      <button id="filter-clear" class="filter-clear" hidden>clear ✕</button>
+    </div>
+
+    <div class="arsenal-grid">
+      <div class="panel skill-panel">
+        <div class="panel-head"><span class="panel-title">offensive_security</span><span class="panel-meta">offensive</span></div>
+        <div class="chips">
+          <button class="chip-tag" data-skill="vulnerability assessments">vulnerability assessments</button>
+          <button class="chip-tag" data-skill="sast">SAST</button>
+          <button class="chip-tag" data-skill="dast">DAST</button>
+          <button class="chip-tag" data-skill="owasp top 10">OWASP Top 10</button>
+          <button class="chip-tag" data-skill="secure code review">secure code review</button>
+          <button class="chip-tag" data-skill="binary exploitation">binary exploitation</button>
+          <button class="chip-tag" data-skill="sqli">SQL injection</button>
+        </div>
+      </div>
+
+      <div class="panel skill-panel">
+        <div class="panel-head"><span class="panel-title">security_operations</span><span class="panel-meta">defensive</span></div>
+        <div class="chips">
+          <button class="chip-tag" data-skill="threat detection">threat detection</button>
+          <button class="chip-tag" data-skill="incident response">incident response</button>
+          <button class="chip-tag" data-skill="siem">SIEM monitoring</button>
+          <button class="chip-tag" data-skill="risk assessments">risk assessments</button>
+          <button class="chip-tag" data-skill="mitre">MITRE ATT&amp;CK</button>
+          <button class="chip-tag" data-skill="nist">NIST 800-61</button>
+        </div>
+      </div>
+
+      <div class="panel skill-panel">
+        <div class="panel-head"><span class="panel-title">mobile_ios</span><span class="panel-meta">platform</span></div>
+        <div class="chips">
+          <button class="chip-tag" data-skill="ipa analysis">IPA analysis</button>
+          <button class="chip-tag" data-skill="api security">API security testing</button>
+          <button class="chip-tag" data-skill="ssl tls">SSL/TLS &amp; cert pinning</button>
+          <button class="chip-tag" data-skill="insecure storage">insecure data storage</button>
+          <button class="chip-tag" data-skill="frida">Frida</button>
+        </div>
+      </div>
+
+      <div class="panel skill-panel">
+        <div class="panel-head"><span class="panel-title">network_security</span><span class="panel-meta">infra</span></div>
+        <div class="chips">
+          <button class="chip-tag" data-skill="firewall">firewall rules</button>
+          <button class="chip-tag" data-skill="tcp ip">TCP/IP</button>
+          <button class="chip-tag" data-skill="ids ips">IDS/IPS</button>
+          <button class="chip-tag" data-skill="pcap">pcap analysis</button>
+          <button class="chip-tag" data-skill="dns">DNS · NAT · TLS · IPSec · SSO</button>
+        </div>
+      </div>
+
+      <div class="panel skill-panel">
+        <div class="panel-head"><span class="panel-title">tools</span><span class="panel-meta">daily-driver</span></div>
+        <div class="chips">
+          <button class="chip-tag" data-skill="splunk">Splunk</button>
+          <button class="chip-tag" data-skill="qradar">QRadar</button>
+          <button class="chip-tag" data-skill="crowdstrike">CrowdStrike Falcon</button>
+          <button class="chip-tag" data-skill="wireshark">Wireshark</button>
+          <button class="chip-tag" data-skill="nessus">Nessus</button>
+          <button class="chip-tag" data-skill="suricata">Suricata</button>
+          <button class="chip-tag" data-skill="fortinet">Fortinet WAF</button>
+          <button class="chip-tag" data-skill="burp">Burp Suite</button>
+          <button class="chip-tag" data-skill="zap">OWASP ZAP</button>
+          <button class="chip-tag" data-skill="metasploit">Metasploit</button>
+          <button class="chip-tag" data-skill="nmap">Nmap</button>
+          <button class="chip-tag" data-skill="gdb">GDB</button>
+          <button class="chip-tag" data-skill="checkmarx">Checkmarx</button>
+          <button class="chip-tag" data-skill="sonarqube">SonarQube</button>
+          <button class="chip-tag" data-skill="snyk">Snyk</button>
+        </div>
+      </div>
+
+      <div class="panel skill-panel">
+        <div class="panel-head"><span class="panel-title">programming_and_crypto</span><span class="panel-meta">code</span></div>
+        <div class="chips">
+          <button class="chip-tag" data-skill="python">Python</button>
+          <button class="chip-tag" data-skill="bash">Bash</button>
+          <button class="chip-tag" data-skill="powershell">PowerShell</button>
+          <button class="chip-tag" data-skill="Public Key Infrastructure">Public Key Infrastructure</button>
+          <button class="chip-tag" data-skill="Digital Signatures">Digital Signatures</button>
+          <button class="chip-tag" data-skill="aes">AES</button>
+          <button class="chip-tag" data-skill="ecdh">ECDH / ECC</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== [04] OPERATIONS ===== -->
+  <section id="operations" class="section">
+    <div class="section-label">
+      <span class="label-num">[04]</span>
+      <span class="label-name">OPERATIONS</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/experience.log</span>
+    </div>
+
+    <div class="log-stream" role="list">
+
+      <article class="log-event filterable" role="listitem"
+               data-skills="appsec,sast,dast,burp,checkmarx,sonarqube,snyk,ios,ipa analysis,frida,ssl tls,api security,python,owasp top 10,secure code review">
+        <header class="log-head" role="button" aria-expanded="true" tabindex="0">
+          <span class="log-ts">[2026-01-05 09:00:00]</span>
+          <span class="log-org">org=QuakTravel</span>
+          <span class="log-loc">loc=remote (boston, ma)</span>
+        </header>
+        <div class="log-body">
+          <div class="log-role">
+            <span class="role-title">application security intern</span>
+            <span class="role-dates">jan 2026 · present</span>
+          </div>
+          <ul class="log-bullets">
+            <li>Performed penetration testing on an iOS app, identifying <span class="metric">20+</span> application-level vulnerabilities and providing actionable remediations to the dev team.</li>
+            <li>Conducted secure code reviews using Checkmarx, SonarQube, and Snyk, reducing risk of data exposure and insecure implementations.</li>
+            <li>Automated code-review pipeline with GitHub Actions and Checkmarx, cutting manual scan time by <span class="metric">50%</span> and blocking high or critical findings from merging to main.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="log-event filterable" role="listitem"
+               data-skills="burp,owasp top 10,vulnerability assessments,python,risk assessments,sqli">
+        <header class="log-head" role="button" aria-expanded="false" tabindex="0">
+          <span class="log-ts">[2023-12-04 09:00:00]</span>
+          <span class="log-event-tag">ROLE_START</span>
+          <span class="log-sev text-muted">severity=archived</span>
+          <span class="log-org">org=DefX</span>
+          <span class="log-loc">loc=ahmedabad, in</span>
+        </header>
+        <div class="log-body collapsed">
+          <div class="log-role">
+            <span class="role-title">penetration testing intern</span>
+            <span class="role-dates">dec 2023 · apr 2024</span>
+          </div>
+          <ul class="log-bullets">
+            <li>Carried out vulnerability assessments and web app pentests with Burp Suite and OWASP ZAP, identifying and mitigating OWASP Top 10 issues, boosting application security posture by <span class="metric">40%</span>.</li>
+            <li>Documented vulnerability findings and collaborated with infrastructure teams to prioritize remediation.</li>
+            <li>Built Python automation for scanning and reporting workflows, cutting manual effort by <span class="metric">30%</span>.</li>
+            <li>Contributed to risk-mitigation strategies and compliance documentation aligned with ISO and NIST frameworks.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="log-event filterable" role="listitem"
+               data-skills="splunk,siem,threat detection,incident response,mitre">
+        <header class="log-head" role="button" aria-expanded="false" tabindex="0">
+          <span class="log-ts">[2023-06-05 09:00:00]</span>
+          <span class="log-org">org=TechDefence Labs</span>
+          <span class="log-loc">loc=ahmedabad, in</span>
+        </header>
+        <div class="log-body collapsed">
+          <div class="log-role">
+            <span class="role-title">cybersecurity intern</span>
+            <span class="role-dates">jun 2023 · aug 2023</span>
+          </div>
+          <ul class="log-bullets">
+            <li>Gained hands-on experience with SIEM tools to investigate, and document security alerts, aligning with real-time SOC operations and incident handling.</li>
+            <li>Monitored and analyzed log data and alerts in Splunk, linking suspicious activity to underlying vulnerabilities and potential exploits.</li>
+            <li>Conducted security assessments using Nessus, identified vulnerabilities, and simulated exploitation techniques as part of a project, demonstrating real-world attack scenarios and risk mitigation strategies.</li>
+            <li>Responded to authentication and access requests, ensuring proper procedures in line with security policies.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ===== [05] CASE FILES ===== -->
+  <section id="cases" class="section">
+    <div class="section-label">
+      <span class="label-num">[05]</span>
+      <span class="label-name">CASE FILES</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/projects</span>
+    </div>
+
+    <div class="cases-grid">
+
+      <article class="case-card filterable" data-case="binexp"
+               data-skills="binary exploitation,python,gdb,pwntools">
+        <div class="case-head">
+          <span class="case-id">CASE-001</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">binary exploitation</h3>
+        <p class="case-tagline">Pwn challenges where I automated format string and ROP chain exploits with pwntools.</p>
+        <div class="case-mini">
+          <pre class="mini-gdb">(gdb) <span class="sev-info">run</span>
+Breakpoint 1, <span class="sev-warn">vulnerable_function</span> ()
+0x7ffeXXXXX  <span class="text-dim">saved rbp</span>
+0x7ffeXXXXX  <span class="sev-crit">saved rip</span>
+0x7ffeXXXXX  buf[0..40]
+                          ↓
+              <span class="sev-success">→ system("/bin/sh")</span></pre>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">pwntools · gdb · python · libc</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+      <article class="case-card filterable" data-case="capstone"
+               data-skills="vulnerability assessments,owasp top 10,risk assessments,incident response,burp,nist">
+        <div class="case-head">
+          <span class="case-id">CASE-002</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">healthcare web app pentest</h3>
+        <p class="case-tagline">Capstone team project. A HIPAA-context pentest of a healthcare web app.</p>
+        <div class="case-mini case-mini-phases" aria-hidden="true">
+          <div class="phase">scope</div>
+          <span class="phase-arrow">→</span>
+          <div class="phase">test</div>
+          <span class="phase-arrow">→</span>
+          <div class="phase">report</div>
+          <span class="phase-arrow">→</span>
+          <div class="phase">ir plan</div>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">burp · owasp · hipaa · ir-plan</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+      <article class="case-card filterable" data-case="logforge"
+               data-skills="siem,splunk,mitre,threat detection,docker">
+        <div class="case-head">
+          <span class="case-id">CASE-003</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">logforge · elk stack</h3>
+        <p class="case-tagline">A Dockerized ELK stack that parses logs and tags them with MITRE techniques.</p>
+        <div class="case-mini case-mini-spark">
+          <div class="spark-wrap">
+            <span class="spark-label">events/sec</span>
+            <svg class="spark" viewBox="0 0 220 40" preserveAspectRatio="none">
+              <polyline class="spark-line" fill="none" stroke="currentColor" stroke-width="1.5"
+                points="0,30 20,28 40,22 60,25 80,15 100,10 120,18 140,8 160,12 180,6 200,14 220,4"/>
+            </svg>
+            <span class="spark-val sev-success">+312</span>
+          </div>
+          <div class="spark-tile">
+            <span class="tile-k">brute-force</span><span class="tile-v sev-crit">17</span>
+          </div>
+          <div class="spark-tile">
+            <span class="tile-k">iam-misuse</span><span class="tile-v sev-warn">4</span>
+          </div>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">elasticsearch · logstash · kibana · grok</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+      <article class="case-card filterable" data-case="ir-playbooks"
+               data-skills="incident response,siem,nist,fortinet,suricata,qradar,nessus,threat detection">
+        <div class="case-head">
+          <span class="case-id">CASE-004</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">ir playbooks for soc automation</h3>
+        <p class="case-tagline">SOC playbooks built around NIST 800-61, covering detection through recovery.</p>
+        <div class="case-mini case-mini-phases" aria-hidden="true">
+          <div class="phase">detect</div>
+          <span class="phase-arrow">→</span>
+          <div class="phase">contain</div>
+          <span class="phase-arrow">→</span>
+          <div class="phase">eradicate</div>
+          <span class="phase-arrow">→</span>
+          <div class="phase">recover</div>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">qradar · nessus · suricata · fortinet</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+      <article class="case-card filterable" data-case="webguard"
+               data-skills="owasp top 10,burp,zap,vulnerability assessments,sqli,secure code review">
+        <div class="case-head">
+          <span class="case-id">CASE-005</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">webguard</h3>
+        <p class="case-tagline">Pentests on intentionally vulnerable web apps focused on the OWASP Top 10.</p>
+        <div class="case-mini case-mini-owasp">
+          <div class="owasp-row"><span class="owasp-id">A01</span><span class="owasp-name">broken access control</span><span class="dot dot-crit"></span></div>
+          <div class="owasp-row"><span class="owasp-id">A03</span><span class="owasp-name">injection (SQLi, XSS)</span><span class="dot dot-crit"></span></div>
+          <div class="owasp-row"><span class="owasp-id">A07</span><span class="owasp-name">identification &amp; auth</span><span class="dot dot-warn"></span></div>
+          <div class="owasp-row"><span class="owasp-id">A02</span><span class="owasp-name">cryptographic failures</span><span class="dot dot-warn"></span></div>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">burp · zap · sqlmap · python</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+      <article class="case-card filterable" data-case="keylogger"
+               data-skills="python,system forensics,aes,cryptography">
+        <div class="case-head">
+          <span class="case-id">CASE-006</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">system monitoring keylogger</h3>
+        <p class="case-tagline">Python keylogger for controlled environments with AES-encrypted exfil.</p>
+        <div class="case-mini">
+<pre class="kl-flow"><span class="sev-info">[capture]</span>  ──▶  <span class="sev-info">[aes-256]</span>  ──▶  <span class="sev-info">[smtp]</span>
+ keystrokes
+ clipboard
+ metadata</pre>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">python · pynput · pycryptodome · smtplib</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+      <article class="case-card filterable" data-case="ecdh"
+               data-skills="bash,cryptography,ecdh,aes">
+        <div class="case-head">
+          <span class="case-id">CASE-007</span>
+          <span class="case-status sev-info">complete</span>
+        </div>
+        <h3 class="case-title">secure group file sharing</h3>
+        <p class="case-tagline">Bash crypto tool for multi-recipient encrypted file sharing using ECDH and ECC.</p>
+        <div class="case-mini">
+<pre class="kx-flow"><span class="sev-info">alice</span>  ──(ECDH)──  <span class="sev-info">bob</span>
+              │
+              ▼
+       <span class="sev-success">shared secret</span>
+              │
+              ▼
+       <span class="sev-warn">aes-256 ciphertext</span></pre>
+        </div>
+        <div class="case-foot">
+          <span class="case-stack">bash · openssl · ecdsa · sha-256</span>
+          <span class="case-cta">open dossier →</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ===== [06] CREDENTIALS ===== -->
+  <section id="credentials" class="section">
+    <div class="section-label">
+      <span class="label-num">[06]</span>
+      <span class="label-name">CREDENTIALS</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/education</span>
+    </div>
+
+    <div class="cred-grid">
+
+      <div class="panel cred-card">
+        <div class="panel-head">
+          <span class="panel-title">northeastern_university</span>
+          <span class="panel-meta">in_progress</span>
+        </div>
+        <div class="cred-row">
+          <div class="cred-text">
+            <div class="cred-degree">M.S. Cybersecurity</div>
+            <div class="cred-meta">Boston, MA · sep 2024 · dec 2026</div>
+          </div>
+          <div class="gauge" role="img" aria-label="GPA 3.76 of 4.0">
+            <svg viewBox="0 0 60 60" width="68" height="68">
+              <circle cx="30" cy="30" r="26" fill="none" stroke="var(--border-strong)" stroke-width="4"/>
+              <circle cx="30" cy="30" r="26" fill="none" stroke="var(--info)" stroke-width="4"
+                      stroke-dasharray="163.4" stroke-dashoffset="9.8"
+                      transform="rotate(-90 30 30)" stroke-linecap="round"/>
+            </svg>
+            <div class="gauge-text"><span class="gauge-val">3.76</span><span class="gauge-of">/4.0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cred-card">
+        <div class="panel-head">
+          <span class="panel-title">silver_oak_university</span>
+          <span class="panel-meta">complete</span>
+        </div>
+        <div class="cred-row">
+          <div class="cred-text">
+            <div class="cred-degree">B.Tech Computer Science w/ Cybersecurity</div>
+            <div class="cred-meta">Ahmedabad, IN · sep 2020 · may 2024</div>
+          </div>
+          <div class="gauge" role="img" aria-label="GPA 8.52 of 10">
+            <svg viewBox="0 0 60 60" width="68" height="68">
+              <circle cx="30" cy="30" r="26" fill="none" stroke="var(--border-strong)" stroke-width="4"/>
+              <circle cx="30" cy="30" r="26" fill="none" stroke="var(--success)" stroke-width="4"
+                      stroke-dasharray="163.4" stroke-dashoffset="24.2"
+                      transform="rotate(-90 30 30)" stroke-linecap="round"/>
+            </svg>
+            <div class="gauge-text"><span class="gauge-val">8.52</span><span class="gauge-of">/10</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel cred-card cred-cert">
+        <div class="panel-head">
+          <span class="panel-title">comptia_security_plus</span>
+          <span class="panel-meta sev-warn">in_progress</span>
+        </div>
+        <div class="cred-text">
+          <div class="cred-degree">CompTIA Security+</div>
+          <div class="cred-meta">currently pursuing</div>
+        </div>
+        <div class="progress" aria-label="Security+ progress">
+          <div class="progress-bar" style="width: 62%"></div>
+          <span class="progress-label">~62% through study plan</span>
+        </div>
+      </div>
+
+      <div class="panel cred-card cred-cert">
+        <div class="panel-head">
+          <span class="panel-title">programming_for_everybody</span>
+          <span class="panel-meta sev-success">issued</span>
+        </div>
+        <div class="cred-text">
+          <div class="cred-degree">Programming for Everybody (Python)</div>
+          <div class="cred-meta">University of Michigan · jan 2024</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===== [07] COMMS ===== -->
+  <section id="comms" class="section section-comms">
+    <div class="section-label">
+      <span class="label-num">[07]</span>
+      <span class="label-name">COMMS</span>
+      <span class="label-rule"></span>
+      <span class="label-meta">/contact</span>
+    </div>
+
+    <div class="comms-grid">
+
+      <div class="panel comms-channels">
+        <div class="panel-head">
+          <span class="panel-title">channels</span>
+          <span class="panel-meta">all open</span>
+        </div>
+
+        <button class="comms-row copy-target" data-copy="asnani.ma@northeastern.edu">
+          <span class="ch-key">email</span>
+          <span class="ch-val">asnani.ma@northeastern.edu</span>
+          <span class="ch-action">copy</span>
+        </button>
+
+        <a class="comms-row" href="https://github.com/manavasnani" target="_blank" rel="noopener">
+          <span class="ch-key">github</span>
+          <span class="ch-val">github.com/<span class="text-dim">manav</span></span>
+          <span class="ch-action">open ↗</span>
+        </a>
+
+        <a class="comms-row" href="https://www.linkedin.com/in/manav-asnani-691883283/" target="_blank" rel="noopener">
+          <span class="ch-key">linkedin</span>
+          <span class="ch-val">linkedin.com/in/<span class="text-dim">manav</span></span>
+          <span class="ch-action">open ↗</span>
+        </a>
+
+        <a class="comms-row" href="https://drive.google.com/file/d/1n03zXlzIe2jzD09iyJAp-XJB9lt6GN51/view?usp=sharing" download>
+          <span class="ch-key">resume</span>
+          <span class="ch-val">manav_asnani_cv.pdf</span>
+          <span class="ch-action">download ↓</span>
+        </a>
+      </div>
+
+      <div class="panel comms-form-panel">
+        <div class="panel-head">
+          <span class="panel-title">send_message</span>
+          <span class="panel-meta">unencrypted · standard email</span>
+        </div>
+        <div class="comms-form">
+          <label class="field">
+            <span class="field-label">from</span>
+            <input type="email" id="from" placeholder="you@domain.tld" />
+          </label>
+          <label class="field">
+            <span class="field-label">subject</span>
+            <input type="text" id="subject" placeholder="re: appsec role at acme corp" />
+          </label>
+          <label class="field">
+            <span class="field-label">body</span>
+            <textarea id="body" rows="5" placeholder="hello manav, ..."></textarea>
+          </label>
+          <button type="button" id="send-msg" class="send-btn">
+            <span>compose mail →</span>
+          </button>
+          <p class="form-note">Opens your default mail client. No data leaves the page.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <span>// end of file</span>
+      <span class="footer-mid">manav asnani · 2026</span>
+      <span>built from a vim buffer · static html · no trackers</span>
+    </footer>
+  </section>
+
+</main>
+
+
+<!-- ============================================================ -->
+<!-- COMMAND PALETTE                                               -->
+<!-- ============================================================ -->
+<div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="palette-backdrop" data-close></div>
+  <div class="palette-box">
+    <div class="palette-head">
+      <span class="palette-prompt">›</span>
+      <input id="palette-input" class="palette-input" type="text" placeholder="type a command…" autocomplete="off" spellcheck="false" />
+      <kbd class="palette-esc">esc</kbd>
+    </div>
+    <ul id="palette-list" class="palette-list" role="listbox"></ul>
+    <div class="palette-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> select</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- MODAL                                                         -->
+<!-- ============================================================ -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-box">
+    <header class="modal-head">
+      <span id="modal-id" class="modal-id">CASE-XXX</span>
+      <h2 id="modal-title" class="modal-title">—</h2>
+      <button class="modal-close" data-close aria-label="Close">✕ <span class="text-dim">esc</span></button>
+    </header>
+    <div id="modal-body" class="modal-body"></div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- TOAST                                                         -->
+<!-- ============================================================ -->
+<div id="toast" class="toast" hidden></div>
+
+
+<script src="script.js" defer></script>
+</body>
+</html>
